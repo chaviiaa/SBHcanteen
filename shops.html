@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shops - SBH Canteen</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="shops.css">
+ 
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">SBH Canteen</a>
+                <div class="chicken">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shops.html">Shops</a></li>
+                </ul>
+            </div>
+        </nav>
+ 
+        <section class="shops">
+            <div class="container">
+                <h1>Our Shops</h1>
+                <p class="subtitle">Pick a shop to see its menu</p>
+ 
+                <div class="shop-grid">
+ 
+                    <!-- Shop 1: click goes to the shop page -->
+                    <a href="index2.html" class="shop-card">
+                        <div class="shop-img" style="background-image: url('launchbox.jpeg');"></div>
+                        <div class="shop-info">
+                            <h3>Launch Box</h3>
+                            <span class="shop-link">View menu &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="index3.html" class="shop-card">
+                        <div class="shop-img" style="background-image: url('menu-nazriel.jpeg');"></div>
+                        <div class="shop-info">
+                            <h3>Nazriel Canteen</h3>
+                            <span class="shop-link">View menu &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="index4.html" class="shop-card">
+                        <div class="shop-img" style="background-image: url('chicken-campus.jpeg');"></div>
+                        <div class="shop-info">
+                            <h3>Chicken Campus</h3>
+                            <span class="shop-link">View menu &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="menu.html" class="shop-card">
+                        <div class="shop-img" style="background-image: url('foto-kantin.jpg');"></div>
+                        <div class="shop-info">
+                            <h3>Ayam Bakar &amp; Penyet Cinta</h3>
+                            <span class="shop-link">View menu &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="index5.html" class="shop-card">
+                        <div class="shop-img" style="background-image: url('Warung-Sehati-SBH.jpeg');"></div>
+                        <div class="shop-info">
+                            <h3>Warung Sehati</h3>
+                            <span class="shop-link">View menu &rarr;</span>
+                        </div>
+                    </a>
+ 
+                </div>
+            </div>
+        </section>
+ 
+        <script>
+            const chicken = document.querySelector(".chicken");
+            const navLinks = document.querySelector(".nav-links");
+ 
+            chicken.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        </script>
+    </body>
+</html>
+ 

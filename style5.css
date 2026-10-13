@@ -1,0 +1,94 @@
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+/* BODY */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #354024;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("https://i.pinimg.com/1200x/4b/13/70/4b13705f194ed7d55c2bd4b385d0b500.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Header dengan foto sebagai background */
+.hero {
+  min-height: 80vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6)),
+    url("Warung-Sehati-SBH.jpeg") center / cover no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6%;
+}
+
+.logo { font-size: 1.6rem; font-weight: 800; color: #fff; }
+.nav ul { list-style: none; display: flex; gap: 24px; }
+.nav a { color: #fff; text-decoration: none; font-weight: 600; }
+.nav a:hover { color: #889063; }
+
+.hero-text {
+  margin: auto;
+  text-align: center;
+  padding: 0 6% 60px;
+}
+.hero-text h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  color: #e5d7c4;
+  text-shadow: 2px 3px 0 #4C3D19;
+}
+.hero-text p { margin: 14px 0 26px; font-size: 1.2rem; }
+
+.btn {
+  display: inline-block;
+  background: #ffffff;
+  color: #2B2118;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn:hover { background: #889063; }
+
+.section { padding: 60px 6%; text-align: center; }
+.section h2 { font-size: 2rem; margin-bottom: 28px; color: #354024; }
+
+.table-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+}
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  text-align: left;
+}
+.menu-table th {
+  background: #354024;
+  color: #e5d7c4;
+  padding: 14px 18px;
+}
+.menu-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f0d9d9;
+}
+.menu-table td:first-child { font-weight: 700; color: #354024; }
+.menu-table th:last-child, .menu-table td:last-child { text-align: right; white-space: nowrap; font-weight: 600; }
+.menu-table tbody tr:hover { background: #fff3e6; }
+
+.order { background: #889063; color: #fff; }
+.order h2 { color: #ffffff; }
+.order p { margin-bottom: 18px; }
+
+footer { text-align: center; padding: 20px; font-size: .9rem; }

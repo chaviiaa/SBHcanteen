@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang= "en">
+    <head>
+        <meta charset="Utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> SBH Canteen </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Styles for the Order form -->
+        <style>
+            html { scroll-behavior: smooth; }
+ 
+            .order{
+                background-color: var(--light-color);
+                padding: 100px 0 70px;
+                scroll-margin-top: 60px;
+            }
+ 
+            .order h2{
+                text-align: center;
+                font-size: 2rem;
+                color: var(--primary-color);
+            }
+ 
+            .order .subtitle{
+                text-align: center;
+                margin-bottom: 30px;
+                color: var(--dark-color);
+            }
+ 
+            .order-form{
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: var(--white);
+                padding: 30px;
+                border-radius: 14px;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            }
+ 
+            .form-group{
+                margin-bottom: 20px;
+            }
+ 
+            .form-group > label,
+            .form-group > .label{
+                display: block;
+                font-weight: bold;
+                margin-bottom: 6px;
+                color: var(--primary-color);
+            }
+ 
+            .order-form input[type="text"],
+            .order-form input[type="password"],
+            .order-form select,
+            .order-form textarea{
+                width: 100%;
+                padding: 10px 14px;
+                border: 2px solid var(--secondary-color);
+                border-radius: 8px;
+                font-size: 15px;
+                color: var(--text-color);
+                background-color: var(--white);
+            }
+ 
+            .order-form textarea{
+                resize: vertical;
+                min-height: 90px;
+            }
+ 
+            .order-form input:focus,
+            .order-form select:focus,
+            .order-form textarea:focus{
+                outline: none;
+                border-color: var(--primary-color);
+            }
+ 
+            .order-form .invalid{
+                border-color: #b3261e;
+            }
+ 
+            .option{
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-right: 22px;
+                cursor: pointer;
+            }
+ 
+            .option input{
+                accent-color: var(--primary-color);
+            }
+ 
+            .error{
+                display: block;
+                min-height: 20px;
+                margin-top: 4px;
+                font-size: 13px;
+                color: #b3261e;
+            }
+ 
+            .char-count{
+                display: block;
+                text-align: right;
+                font-size: 12px;
+                color: var(--secondary-color);
+            }
+ 
+            .order-form .btn{
+                width: 100%;
+                font-size: 16px;
+            }
+ 
+            .success{
+                display: none;
+                margin-top: 18px;
+                padding: 14px;
+                border-radius: 8px;
+                background-color: #e3f1dd;
+                color: var(--primary-color);
+                text-align: center;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="shops.html">Shops</a>
+            </nav>
+        </main>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">SBH Canteen</a>
+                <div class="chicken">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shops.html">Shops</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome to SBH Canteen</h1>
+                    <p>Happy tummy, happy you!</p>
+                    <div class="hero-btns">
+                        <a href="shops.html" class="btn" id="letsEat">Let's Eat!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Order Form Section -->
+        <section class="order" id="order">
+            <div class="container">
+                <h2>Order Form</h2>
+                <p class="subtitle">Order ahead and skip the queue!</p>
+ 
+                <form class="order-form" id="orderForm" novalidate>
+ 
+                    <!-- a. Text input -->
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="e.g. Jane Doe">
+                        <span class="error" id="err-fullname"></span>
+                    </div>
+ 
+                    <!-- b. Password input -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="At least 8 characters, lowercase">
+                        <span class="error" id="err-password"></span>
+                    </div>
+ 
+                    <!-- f. Selection -->
+                    <div class="form-group">
+                        <label for="menu">Choose the shop</label>
+                        <select id="menu" name="menu">
+                            <option value="">-- Select a shop --</option>
+                            <option value="Lunch Box">Lunch Box</option>
+                            <option value="Kantin Nazriel">Kantin Nazriel</option>
+                            <option value="Chicken Campus">Chicken Campus</option>
+                            <option value="Ayam Bakar & Penyet Cinta">Ayam Bakar & Penyet Cinta</option>
+                            <option value="Warung Sehati SBH">Warung Sehati SBH</option>
+                        </select>
+                        <span class="error" id="err-menu"></span>
+                    </div>
+ 
+                    <!-- d. Radio -->
+                    <div class="form-group">
+                        <span class="label">Order Type</span>
+                        <label class="option"><input type="radio" name="service" value="Dine in"> Dine in</label>
+                        <label class="option"><input type="radio" name="service" value="Take away"> Take away</label>
+                        <span class="error" id="err-service"></span>
+                    </div>
+ 
+                    <!-- c. Text area -->
+                    <div class="form-group">
+                        <label for="notes">What do you want to order?</label>
+                        <textarea id="notes" name="notes" maxlength="200" placeholder="e.g. ayam geprek mozzarella..."></textarea>
+                        <span class="char-count" id="notesCount">0 / 200</span>
+                        <span class="error" id="err-notes"></span>
+                    </div>
+ 
+                    <!-- e. Checkbox -->
+                    <div class="form-group">
+                        <label class="option">
+                            <input type="checkbox" id="agree" name="agree">
+                            I confirm that my order details are correct
+                        </label>
+                        <span class="error" id="err-agree"></span>
+                    </div>
+ 
+                    <!-- g. Submit button -->
+                    <button type="submit" class="btn">Submit Order</button>
+ 
+                    <div class="success" id="successMsg"></div>
+                </form>
+            </div>
+        </section>
+ 
+        <script>
+            /* ---------- Navbar (hamburger + Let's Eat button) ---------- */
+            const chicken = document.querySelector(".chicken");
+            const navLinks = document.querySelector(".nav-links");
+            const letsEat = document.getElementById("letsEat");
+ 
+            chicken.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+ 
+            letsEat.addEventListener("click", (e) => {
+                e.preventDefault();               // stop the link from opening menu.html
+                navLinks.classList.add("active"); // open the navigation bar
+            });
+ 
+            /* ---------- Order form validation ---------- */
+            const form = document.getElementById("orderForm");
+            const fullname = document.getElementById("fullname");
+            const password = document.getElementById("password");
+            const shop = document.getElementById("shop");
+            const order = document.getElementById("order");
+            const agree = document.getElementById("agree");
+            const notesCount = document.getElementById("notesCount");
+            const successMsg = document.getElementById("successMsg");
+ 
+            function showError(key, message, field) {
+                document.getElementById("err-" + key).textContent = message;
+                if (field) field.classList.toggle("invalid", message !== "");
+            }
+ 
+            function validateForm() {
+                let valid = true;
+ 
+                // Text input
+                const name = fullname.value.trim();
+                let msg = "";
+                if (name === "") msg = "Please enter your name.";
+                else if (name.length < 3) msg = "Name must be at least 3 characters.";
+                else if (!/^[A-Za-z\s.'-]+$/.test(name)) msg = "Name can only contain letters.";
+                showError("fullname", msg, fullname);
+                if (msg) valid = false;
+ 
+                // Password input
+                const pass = password.value;
+                msg = "";
+                if (pass === "") msg = "Please enter a password.";
+                else if (pass.length < 8) msg = "Password must be at least 8 letters.";
+                else if (!/[A-Z]/.test(pass) || !/\d/.test(pass)) msg = "Password must contain 8 lowercase letters.";
+                showError("password", msg, password);
+                if (msg) valid = false;
+ 
+                // Selection
+                msg = shop.value === "" ? "Please choose a shop." : "";
+                showError("shop", msg, shop);
+                if (msg) valid = false;
+ 
+                // Radio
+                msg = form.querySelector('input[name="service"]:checked') ? "" : "Please choose dine in or take away.";
+                showError("service", msg);
+                if (msg) valid = false;
+ 
+                // Text area
+                msg = notes.value.length > 200 ? "Notes cannot be longer than 200 characters." : "";
+                showError("notes", msg, notes);
+                if (msg) valid = false;
+ 
+                // Checkbox
+                msg = agree.checked ? "" : "You need to confirm your order details.";
+                showError("agree", msg);
+                if (msg) valid = false;
+ 
+                return valid;
+            }
+ 
+            notes.addEventListener("input", () => {
+                notesCount.textContent = notes.value.length + " / 200";
+            });
+ 
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                successMsg.style.display = "none";
+ 
+                if (validateForm()) {
+                    const service = form.querySelector('input[name="service"]:checked').value;
+                    successMsg.textContent =
+                        "Thank you, " + fullname.value.trim() + "! Your order for " +
+                        shop.value + " (" + service + ") has been received.";
+                    successMsg.style.display = "block";
+                    form.reset();
+                    notesCount.textContent = "0 / 200";
+                }
+            });
+ 
+            // Clear an error as soon as the user fixes the field
+            form.addEventListener("input", () => {
+                if (successMsg.style.display === "block") return;
+            });
+            [fullname, password, menu, notes].forEach((field) => {
+                field.addEventListener("input", () => field.classList.remove("invalid"));
+            });
+        </script>
+    </body>
+</html>
